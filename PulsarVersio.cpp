@@ -181,9 +181,10 @@ float GetVoctFrequency(float baseFreq) {
 int main(void) {
     // Initialize hardware
     hw.Init();
+    hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_96KHZ);
     hw.StartAdc();
 
-    sampleRate = hw.seed.AudioSampleRate();
+    sampleRate = hw.AudioSampleRate();
 
     // Initialize pulsar engine
     pulsar.Init(sampleRate);
